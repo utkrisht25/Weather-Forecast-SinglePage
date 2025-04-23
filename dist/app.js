@@ -98,15 +98,44 @@ function createCityItem(cityData) {
     //isDuplicate is false that means city is not present already so we can add this city to the list now
     if(!isDuplicate) {
         const city_item = document.createElement('li');
-        city_item.className = 'text-blue-200 hover:bg-gray-700 p-2 rounded-md cursor-pointer transition-colors';
+        city_item.className = 'group text-blue-200 hover:bg-gray-700 p-2 rounded-md cursor-pointer transition-colors flex justify-between items-center';
+        city_item.dataset.city = JSON.stringify(cityData);
         city_item.innerHTML = `
-            <span class="font-medium">${cityData.name}</span>
-            <span class="text-sm text-gray-400 ml-2">${cityData.country}</span>
+             <div>
+                <span class="font-medium">${cityData.name}</span>
+                <span class="text-sm text-gray-400 ml-2">${cityData.country}</span>
+            </div>
+            <button class="delete-btn text-red-500 text-lg opacity-0 group-hover:opacity-100 transition-opacity px-2 hover:text-red-400">
+                x
+            </button>
         `;
 
         //every city is clickable and when click on it , get the weather of that city
-        city_item.addEventListener('click', () => {
-            getWeatherDetails(cityData.name, cityData.lat, cityData.lon, cityData.country, cityData.state);
+        city_item.addEventListener('click', (e) => {
+            if(!e.target.classList.contains('delete-btn')){
+                getWeatherDetails(cityData.name, cityData.lat, cityData.lon, cityData.country, cityData.state);
+            }
+        });
+
+        //add delete functionality
+        const deleteBtn = city_item.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', (e)=>{
+            e.stopPropagation();
+
+            //Remove the item from DOM
+            city_item.remove();
+
+            //remove also from localstorage
+            const savedCities = JSON.parse(localStorage.getItem('weatherCities')) || [];
+            const updatedCities = savedCities.filter(c =>
+                !(c.name === cityData.name && c.country === cityData.country)
+            );
+            localStorage.setItem('weatherCities' , JSON.stringify(updatedCities));
+
+            //hide container if it is empty
+            if(city_list.children.length === 0){
+                citiesContainer.classList.add('hidden');
+            }
         });
 
         city_list.appendChild(city_item);
@@ -117,7 +146,7 @@ function createCityItem(cityData) {
             savedCities.push(cityData);
             localStorage.setItem('weatherCities', JSON.stringify(savedCities));
         }
-        //whenev
+        //whenever a new city add the city list will update and this list will appear 
         if(citiesContainer.classList.contains('hidden')) {
             citiesContainer.classList.remove('hidden');
         }
