@@ -14,7 +14,14 @@
             <div class="text-2xl font-bold mb-6"> Weather Dashboard</div>
             <nav class="space-y-4 text-sm">
                 <a href="#" class="block text-lg text-blue-200 hover:text-blue-500"> Weather</a>
-                <a href="#" class="block text-lg text-blue-200 hover:text-blue-500"> Cities </a>
+                <a href="#" id="toggleCities" class="block text-lg text-blue-200 hover:text-blue-500"> Cities </a>
+                <!-- cities container - initially hidden -->
+                 <div id="cities-container" class="hidden mt-2 p-4 bg-gray-800 rounded-md shadow-lg">
+                    <h3 class="text-white text-lg mb-2 font-semibold">Searched Cities</h3>
+                    <div id="cities-list" class="max-h-60 overflow-y-auto">
+                      <!-- city list will appear here -->
+                    </div>
+                 </div>
                 <button id="themeToggle" class="block text-lg text-blue-200 dark:text-blue-200 hover:text-blue-500 w-full text-left cursor-pointer">Toggle Theme</button>
                 <div id="toggle-text"></div>
             </nav>
@@ -24,11 +31,12 @@
 
          <main class="md:col-span-2 p-4 grid gap-4">
                 <!-- search & weather summary -->
-            <div>
-                <input type="text" placeholder="Search for cities E.g., New York , London, Tokyo" class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none shadow-lg shadow-gray-950/50">
+            <div class="grid grid-cols-[60%_20%_20%] gap-2 h-3">
+                <input type="text" id="city-input" placeholder="Search for cities E.g., New York , London, Tokyo" class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none shadow-lg shadow-gray-950/50">
+                <button type="button" id="searchBtn" class=" p-2 rounded bg-gray-700 text-white hover:bg-sky-200 hover:text-black cursor-pointer shadow-lg shadow-gray-950/50">Search</button>
 
                 <!-- Use Current Location Button -->
-                 <button class="mt-2 text-sm text-blue-400 hover:underline focus:outline-none cursor-pointer" id="current-location">
+                 <button class="p-2 rounded bg-gray-700 text-white hover:bg-sky-200 hover:text-black cursor-pointer shadow-lg shadow-gray-950/50" id="current-location">
                     📍 Use current location
                  </button>
                 
