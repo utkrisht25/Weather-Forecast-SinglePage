@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast </title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <div class="grid grid-cols-1 md:grid-cols-4 min-h-screen">
+
+        <!-- Sidebar -->
+         <aside class="bg-gray-800 p-4 m-4 rounded-xl space-y-6 md:col-span-1 shadow-lg shadow-gray-950/50">
+            <div class="text-2xl font-bold mb-6"> Weather Dashboard</div>
+            <nav class="space-y-4 text-sm">
+                <a href="#" class="block text-lg text-blue-200 hover:text-blue-500"> Weather</a>
+                <a href="#" class="block text-lg text-blue-200 hover:text-blue-500"> Cities </a>
+                <button id="themeToggle" class="block text-lg text-blue-200 dark:text-blue-200 hover:text-blue-500 w-full text-left cursor-pointer">Toggle Theme</button>
+                <div id="toggle-text"></div>
+            </nav>
+         </aside>
+
+         <!-- main content -->
+
+         <main class="md:col-span-2 p-4 grid gap-4">
+                <!-- search & weather summary -->
+            <div>
+                <input type="text" placeholder="Search for cities E.g., New York , London, Tokyo" class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none shadow-lg shadow-gray-950/50">
+
+                <!-- Use Current Location Button -->
+                 <button class="mt-2 text-sm text-blue-400 hover:underline focus:outline-none cursor-pointer" id="current-location">
+                    📍 Use current location
+                 </button>
+                
+            </div>
+
+            
+             <div class="flex justify-between items-center gap-8 ">
+                <!-- left section -->
+                <div class="flex-1 flex flex-col justify-between m-3 mt-2 ">  
+                    <div>
+                        <h1 class="text-6xl font-bold">Dehli</h1>
+                        <p class="text-sm text-gray-400"> Chance of rain: 0%</p>
+                    </div>
+                    <div class="text-6xl font-bold mt-6">31°</div>
+                </div>
+                <!-- right section -->
+                <div class=" flex-1 text-center ">
+                    <img id="weather-icon"
+                    src="sun-logo.webp"
+                    alt="Sunny"
+                    class="w-20 h-20 mx-auto bg-transparent"/>
+                    <p class="text-sm text-gray-300 mt-2">Sunny</p>
+                </div>
+             </div>
+
+              <!-- Hourly Forecast -->
+
+              <div class="bg-gray-800 rounded-lg p-4 shadow-lg shadow-gray-950/50">
+                <h2 class="text-lg font-semibold mb-2">Today's Forecast</h2>
+                <div class="grid grid-cols-3 sm:grid-cols-6 gap-4 text-center text-sm">
+                    <div><p>6:00 AM</p><img src="☁️" alt=""><p>25°</p></div>
+                    <div><p>9:00 AM</p><img src="🌤" alt=""><p>28°</p></div>
+                    <div><p>12:00 PM</p><img src="☀️" alt=""><p>33°</p></div>
+                    <div><p>3:00 PM</p><img src="☀️" alt=""><p>34°</p></div>
+                    <div><p>6:00 PM</p><img src="☀️" alt=""><p>32°</p></div>
+                    <div><p>9:00 PM</p><img src="🌥" alt=""><p>30°</p></div>
+                </div>
+              </div>
+
+              <!-- Air Conditions -->
+               <div class="bg-gray-800 rounded-lg p-4 shadow-lg shadow-gray-950/50">
+                    <h2 class="text-lg font-semibold mb-2">Air Conditions</h2>
+                    <div class="grid grid-cols-2 gap-4 text-sm">    
+                        <div><p class="font-semibold"> Real Feel </p><p>30°</p></div>
+                        <div><p class="font-semibold"> Wind </p><p>0.2 km/h</p></div>
+                        <div><p class="font-semibold"> Chance of Rain</p><p>0%</p></div>
+                        <div><p class="font-semibold"> UV Index</p><p>3</p></div>+
+                    </div>
+               </div>
+         </main>
+          <!-- Right Sidebar - Weekly Forecast -->
+          <aside class="bg-gray-800 p-4 md:col-span-1 m-4 rounded-lg text-white shadow-lg shadow-gray-950/50">
+            <h2 class="text-lg font-semibold mb-4">7-Day Forecast</h2>
+            <div class="space-y-2 text-sm">
+              <!-- Forecast Item -->
+              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600"> 
+                <p class="w-1/4 text-blue-500 transform hover:scale-105  hover:text-blue-100 transition duration-100 ease-in-out">Day</p>
+                <div class="flex items-center gap-2 w-1/2 justify-center">
+                  <span class="text-blue-500 transform hover:scale-105  hover:text-blue-100 transition duration-100 ease-in-out">Weather</span>
+                </div>
+                  <p class="w-1/4 text-right text-blue-500 transform hover:scale-105  hover:text-blue-100 transition duration-100 ease-in-out">High/Low</p>
+            </div>
+              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4">Today</p>
+                <div class="flex items-center gap-2 w-1/2 justify-center">
+                  <img src="sunny-aside-bar.jpg" alt="Sunny" class="w-5 h-5" />
+                  <span>Sunny</span>
+                </div>
+                <p class="w-1/4 text-right">36/22</p>
+              </div>
+          
+              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4">Tue</p>
+                <div class="flex items-center gap-2 w-1/2 justify-center">
+                  <img src="sunny-aside-bar.jpg" alt="Sunny" class="w-5 h-5" />
+                  <span>Sunny</span>
+                </div>
+                <p class="w-1/4 text-right">37/21</p>
+              </div>
+          
+              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4">Wed</p>
+                <div class="flex items-center gap-4 w-1/2 justify-center">
+                  <img src="sunny-aside-bar.jpg" alt="Sunny" class="w-5 h-5" />
+                  <span>Sunny</span>
+                </div>
+                <p class="w-1/4 text-right">37/21</p>
+              </div>
+          
+              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4">Thu</p>
+                <div class="flex items-center gap-4 w-1/2 justify-center">
+                  <img src="cloudy-aside-bar.avif" alt="Cloudy" class="w-5 h-5" />
+                  <span>Cloudy</span>
+                </div>
+                <p class="w-1/4 text-right">37/21</p>
+              </div>
+          
+              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4">Fri</p>
+                <div class="flex items-center gap-4 w-1/2 justify-center">
+                  <img src="cloudy-aside-bar.avif" alt="Cloudy" class="w-5 h-5" />
+                  <span>Cloudy</span>
+                </div>
+                <p class="w-1/4 text-right">37/21</p>
+              </div>
+          
+              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4">Sat</p>
+                <div class="flex items-center gap-4 w-1/2 justify-center">
+                  <img src="raniy-aside-bar.avif" alt="Rainy" class="w-5 h-5" />
+                  <span>Rainy</span>
+                </div>
+                <p class="w-1/4 text-right">37/21</p>
+              </div>
+          
+              <div class="flex justify-between items-center px-2 py-2">
+                <p class="w-1/4">Sun</p>
+                <div class="flex items-center gap-4 w-1/2 justify-center">
+                  <img src="thundar-aside-bar.png" alt="Storm" class="w-5 h-5" />
+                  <span>Storm</span>
+                </div>
+                <p class="w-1/4 text-right">37/21</p>
+              </div>
+            </div>
+          </aside>
+          
+
+    </div>
+
+
+    
+    <script src="app.js"></script>
+</body>
+</html>
