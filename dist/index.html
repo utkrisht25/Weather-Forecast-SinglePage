@@ -31,12 +31,12 @@
 
          <main class="md:col-span-2 p-4 grid gap-4">
                 <!-- search & weather summary -->
-            <div class="grid grid-cols-[60%_20%_20%] gap-2 h-3">
-                <input type="text" id="city-input" placeholder="Search for cities E.g., New York , London, Tokyo" class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none shadow-lg shadow-gray-950/50">
-                <button type="button" id="searchBtn" class=" p-2 rounded bg-gray-700 text-white hover:bg-sky-200 hover:text-black cursor-pointer shadow-lg shadow-gray-950/50">Search</button>
+            <div class="grid grid-cols-[60%_20%_20%] gap-2 h-2 ">
+                <input type="text" id="city-input" placeholder="Search for cities E.g., New York , London, Tokyo" class="w-full px-3 py-1.5 rounded bg-gray-700 text-white focus:outline-none shadow-lg shadow-gray-950/50 ">
+                <button type="button" id="searchBtn" class="px-3 py-1.5 rounded-xl bg-gray-700 text-white hover:bg-sky-200 hover:text-black cursor-pointer shadow-lg shadow-gray-950/50">Search</button>
 
                 <!-- Use Current Location Button -->
-                 <button class="p-2 rounded bg-gray-700 text-white hover:bg-sky-200 hover:text-black cursor-pointer shadow-lg shadow-gray-950/50" id="current-location">
+                 <button class="px-3 py-1.5 rounded-xl bg-gray-700 text-white hover:bg-sky-200 hover:text-black cursor-pointer shadow-lg shadow-gray-950/50" id="current-location">
                     📍 Use current location
                  </button>
                 
@@ -47,32 +47,33 @@
                 <!-- left section -->
                 <div class="flex-1 flex flex-col justify-between m-3 mt-2 ">  
                     <div>
-                        <h1 class="text-6xl font-bold">Dehli</h1>
-                        <p class="text-sm text-gray-400"> Chance of rain: 0%</p>
+                        <h1 class="text-6xl font-bold " id="city_name">Dehli</h1>
+                        <p class="text-sm text-gray-400 chance_of_rain"> Chance of rain: clear sky</p>
                     </div>
-                    <div class="text-6xl font-bold mt-6">31°</div>
+                    <div class="text-6xl font-bold mt-6" id="current_temp">31°</div>
                 </div>
                 <!-- right section -->
                 <div class=" flex-1 text-center ">
                     <img id="weather-icon"
                     src="sun-logo.webp"
                     alt="Sunny"
-                    class="w-20 h-20 mx-auto bg-transparent"/>
-                    <p class="text-sm text-gray-300 mt-2">Sunny</p>
+                    class="w-20 h-20 mx-auto bg-transparent"
+                    id="weather-icon"/>
+                    <p class="text-sm text-gray-300 mt-2" id="weather-desc">Sunny</p>
                 </div>
              </div>
 
               <!-- Hourly Forecast -->
 
               <div class="bg-gray-800 rounded-lg p-4 shadow-lg shadow-gray-950/50">
-                <h2 class="text-lg font-semibold mb-2">Today's Forecast</h2>
+                <h2 class="text-lg font-semibold mb-2">3 Hrs Forecast</h2>
                 <div class="grid grid-cols-3 sm:grid-cols-6 gap-4 text-center text-sm">
-                    <div><p>6:00 AM</p><img src="☁️" alt=""><p>25°</p></div>
-                    <div><p>9:00 AM</p><img src="🌤" alt=""><p>28°</p></div>
-                    <div><p>12:00 PM</p><img src="☀️" alt=""><p>33°</p></div>
-                    <div><p>3:00 PM</p><img src="☀️" alt=""><p>34°</p></div>
-                    <div><p>6:00 PM</p><img src="☀️" alt=""><p>32°</p></div>
-                    <div><p>9:00 PM</p><img src="🌥" alt=""><p>30°</p></div>
+                  <div><p>12:00 PM</p><img src="☀️" alt=""><p id="temp_12_pm">33°</p></div>
+                  <div><p>03:00 PM</p><img src="☀️" alt=""><p id="temp_03_pm">34°</p></div>
+                  <div><p>06:00 PM</p><img src="☀️" alt=""><p id="temp_06_pm">32°</p></div>
+                  <div><p>09:00 PM</p><img src="🌥" alt=""><p id="temp_09_pm">30°</p></div>
+                  <div><p>12:00 AM</p><img src="☁️" alt=""><p id="temp_12_am">25°</p></div>
+                  <div><p>03:00 AM</p><img src="🌤" alt=""><p id="temp_03_am">28°</p></div>
                 </div>
               </div>
 
@@ -80,87 +81,72 @@
                <div class="bg-gray-800 rounded-lg p-4 shadow-lg shadow-gray-950/50">
                     <h2 class="text-lg font-semibold mb-2">Air Conditions</h2>
                     <div class="grid grid-cols-2 gap-4 text-sm">    
-                        <div><p class="font-semibold"> Real Feel </p><p>30°</p></div>
-                        <div><p class="font-semibold"> Wind </p><p>0.2 km/h</p></div>
-                        <div><p class="font-semibold"> Chance of Rain</p><p>0%</p></div>
-                        <div><p class="font-semibold"> UV Index</p><p>3</p></div>+
+                        <div><p class="font-semibold" > Feels Alike </p> <p id="feels-alike">30°</p></div>
+                        <div><p class="font-semibold" > Wind Speed</p> <p id="wind-speed">3 m/s</p></div>
+                        <div><p class="font-semibold" > Chance of Rain</p> <p class="chance_of_rain">0%</p></div>
+                        <div><p class="font-semibold" > Humidity</p> <p id="humidity">3</p></div>+
                     </div>
                </div>
          </main>
           <!-- Right Sidebar - Weekly Forecast -->
           <aside class="bg-gray-800 p-4 md:col-span-1 m-4 rounded-lg text-white shadow-lg shadow-gray-950/50">
-            <h2 class="text-lg font-semibold mb-4">7-Day Forecast</h2>
+            <h2 class="text-lg font-semibold mb-4">5-Day Forecast</h2>
             <div class="space-y-2 text-sm">
               <!-- Forecast Item -->
               <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600"> 
-                <p class="w-1/4 text-blue-500 transform hover:scale-105  hover:text-blue-100 transition duration-100 ease-in-out">Day</p>
+                <p class="w-1/4 text-blue-500 transform hover:scale-105  hover:text-blue-100 transition duration-100 ease-in-out">Date</p>
                 <div class="flex items-center gap-2 w-1/2 justify-center">
                   <span class="text-blue-500 transform hover:scale-105  hover:text-blue-100 transition duration-100 ease-in-out">Weather</span>
                 </div>
                   <p class="w-1/4 text-right text-blue-500 transform hover:scale-105  hover:text-blue-100 transition duration-100 ease-in-out">High/Low</p>
             </div>
-              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
-                <p class="w-1/4">Today</p>
+            <!-- we start the day from 0 here because we'll loop on the whole div and then 
+             use this day number as the index to loop  -->
+              <div id="day-0" class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4 forecast-date">__</p>
                 <div class="flex items-center gap-2 w-1/2 justify-center">
-                  <img src="sunny-aside-bar.jpg" alt="Sunny" class="w-5 h-5" />
-                  <span>Sunny</span>
+                  <img src="sunny-aside-bar.jpg" alt="Sunny" class="w-5 h-5 forecast-icon" />
+                  <span class="forecast-weather">Sunny</span>
                 </div>
-                <p class="w-1/4 text-right">36/22</p>
+                <p class="w-1/4 text-right"><span class="temp-max"></span>° / <span class="temp-min"></span>°</p>
               </div>
           
-              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
-                <p class="w-1/4">Tue</p>
+              <div id="day-1" class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4 forecast-date">__</p>
                 <div class="flex items-center gap-2 w-1/2 justify-center">
-                  <img src="sunny-aside-bar.jpg" alt="Sunny" class="w-5 h-5" />
-                  <span>Sunny</span>
+                  <img src="sunny-aside-bar.jpg" alt="Sunny" class="w-5 h-5 forecast-icon" />
+                  <span class="forecast-weather">Sunny</span>
                 </div>
-                <p class="w-1/4 text-right">37/21</p>
+                <p class="w-1/4 text-right"><span class="temp-max"></span>° / <span class="temp-min"></span>°</p>
               </div>
           
-              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
-                <p class="w-1/4">Wed</p>
+              <div id="day-2" class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4 forecast-date">__</p>
                 <div class="flex items-center gap-4 w-1/2 justify-center">
-                  <img src="sunny-aside-bar.jpg" alt="Sunny" class="w-5 h-5" />
-                  <span>Sunny</span>
+                  <img src="sunny-aside-bar.jpg" alt="Sunny" class="w-5 h-5 forecast-icon" />
+                  <span class="forecast-weather">Sunny</span>
                 </div>
-                <p class="w-1/4 text-right">37/21</p>
+                <p class="w-1/4 text-right"><span class="temp-max"></span>° / <span class="temp-min"></span>°</p>
               </div>
           
-              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
-                <p class="w-1/4">Thu</p>
+              <div id="day-3" class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4 forecast-date">__</p>
                 <div class="flex items-center gap-4 w-1/2 justify-center">
-                  <img src="cloudy-aside-bar.avif" alt="Cloudy" class="w-5 h-5" />
-                  <span>Cloudy</span>
+                  <img src="cloudy-aside-bar.avif" alt="Cloudy" class="w-5 h-5 forecast-icon" />
+                  <span class="forecast-weather">Cloudy</span>
                 </div>
-                <p class="w-1/4 text-right">37/21</p>
+                <p class="w-1/4 text-right"><span class="temp-max"></span>° / <span class="temp-min"></span>°</p>
               </div>
           
-              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
-                <p class="w-1/4">Fri</p>
+              <div id="day-4" class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                <p class="w-1/4 forecast-date">__</p>
                 <div class="flex items-center gap-4 w-1/2 justify-center">
-                  <img src="cloudy-aside-bar.avif" alt="Cloudy" class="w-5 h-5" />
-                  <span>Cloudy</span>
+                  <img src="cloudy-aside-bar.avif" alt="Cloudy" class="w-5 h-5 forecast-icon" />
+                  <span class="forecast-weather">Cloudy</span>
                 </div>
-                <p class="w-1/4 text-right">37/21</p>
+                <p class="w-1/4 text-right"><span class="temp-max"></span>° / <span class="temp-min"></span>°</p>
               </div>
           
-              <div class="flex justify-between items-center px-2 py-2 border-b border-gray-600">
-                <p class="w-1/4">Sat</p>
-                <div class="flex items-center gap-4 w-1/2 justify-center">
-                  <img src="raniy-aside-bar.avif" alt="Rainy" class="w-5 h-5" />
-                  <span>Rainy</span>
-                </div>
-                <p class="w-1/4 text-right">37/21</p>
-              </div>
-          
-              <div class="flex justify-between items-center px-2 py-2">
-                <p class="w-1/4">Sun</p>
-                <div class="flex items-center gap-4 w-1/2 justify-center">
-                  <img src="thundar-aside-bar.png" alt="Storm" class="w-5 h-5" />
-                  <span>Storm</span>
-                </div>
-                <p class="w-1/4 text-right">37/21</p>
-              </div>
             </div>
           </aside>
           
